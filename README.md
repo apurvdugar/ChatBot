@@ -19,7 +19,7 @@
 - Suggestion chips per persona
 - Persona persistence and backend persona sync
 
-## Backend Setup (Local)
+## Backend Setup
 
 ### 1. Install dependencies
 
@@ -43,7 +43,7 @@ APP_URL=https://chat-bot-frontend-bay.vercel.app
 node client.js
 ```
 
-## Frontend Setup (Local)
+## Frontend Setup 
 
 ### 1) Install dependencies
 
