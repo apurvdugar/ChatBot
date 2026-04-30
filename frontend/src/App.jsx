@@ -35,6 +35,7 @@ const PERSONAS = [
     ]
   }
 ];
+const API_BASE_URL = (import.meta.env.VITE_API_URL || "http://localhost:3000").replace(/\/$/, "");
 
 function App() {
   const [messages, setMessages] = useState([
@@ -73,7 +74,7 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await fetch(process.env.APP_URL + "/chat", {
+      const response = await fetch(`${API_BASE_URL}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text, persona: selectedPersona.id })
@@ -115,7 +116,7 @@ function App() {
     setError("");
 
     try {
-      const response = await fetch(process.env.APP_URL + `/changePersona/${nextPersonaId}`, {
+      const response = await fetch(`${API_BASE_URL}/changePersona/${nextPersonaId}`, {
         method: "PUT"
       });
 
