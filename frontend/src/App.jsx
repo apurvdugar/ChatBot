@@ -73,7 +73,7 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:3000/chat", {
+      const response = await fetch(process.env.APP_URL + "/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text, persona: selectedPersona.id })
@@ -115,7 +115,7 @@ function App() {
     setError("");
 
     try {
-      const response = await fetch(`http://localhost:3000/changePersona/${nextPersonaId}`, {
+      const response = await fetch(process.env.APP_URL + `/changePersona/${nextPersonaId}`, {
         method: "PUT"
       });
 
