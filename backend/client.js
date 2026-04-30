@@ -29,6 +29,10 @@ let personas = {
     "abhimanyu": abhimanyu_saxena_persona.systemPrompt
 }
 
+app.get("/", (_req, res) => {
+    res.json({ status: "ok", message: "Scaler Persona Chatbot backend is running" });
+});
+
 app.post("/chat", async (req, res) => {
     const message = req.body.message;
     messages.push({role: "user", content: message});
@@ -57,6 +61,10 @@ app.put("/changePersona/:persona", (req,res) => {
 
 const PORT = 3000;
 
-app.listen(PORT, () => {
-    console.log("Server running on port", PORT);
-});
+if (process.env.VERCEL !== "1") {
+    app.listen(PORT, () => {
+        console.log("Server running on port", PORT);
+    });
+}
+
+export default app;
